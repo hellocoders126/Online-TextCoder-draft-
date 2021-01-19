@@ -1,0 +1,78 @@
+<script>
+  var az = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+  var otherchar = [" ",",",".","!","?"]
+ window.onload = function onload(){
+   document.getElementById("alert").style.display = "none";
+ }
+ function updateSliderValue(){
+   var sliderValue = document.getElementById("shift").value;
+   document.getElementById("textshift").innerHTML = sliderValue;
+ }
+ 
+ function processSettings(){
+   if (document.getElementById("code").value == "") {
+     document.getElementById("alert").style.display = "block";  
+   return false;
+   }
+   var output = document.getElementById("output").value;
+   var caps = "false";
+   var spu = "false";
+   var coty = "encode";
+   var shift = "2";
+   var code = "";
+   if (document.getElementById("1").checked == true) {
+     var caps = "true";
+   }
+   if (document.getElementById("2").checked == true) {
+     var spu = "true";
+   }
+   var coty = document.getElementById("e/d").value;
+   var shift = document.getElementById("shift").value;
+   var code = document.getElementById("code").value;
+   var code = code.toLowerCase();
+   alert(output);
+   alert(caps);
+   alert(spu);
+   alert(coty);
+   alert(shift);
+   alert(code);
+   if (coty == "Encode") {
+     var letter;
+     var number;
+     var ennum;
+     var enlet;
+     var i;
+     var sentence = [];
+     for (var i = 0; i < code.length; i++) {
+       var other = "false";
+       var letter = code.charAt(i);
+       if (otherchar.includes(letter)) {
+         var enlet = letter;
+         var other = "true";
+         sentence.push(enlet);
+       }
+       if (other == "false") {
+         var number = az.indexOf(letter);
+         if (number == -1) {
+           document.getElementById("alert").style.display = "block";  
+           return false;
+         }
+         if (coty == "Encode") {
+           var ennum = number+2;
+           if (ennum > 25) {
+             var ennum = ennum-26;
+           }
+           var enlet = az[ennum];
+         }         
+         sentence.push(enlet);
+         alert(sentence);
+       }
+       
+     }  
+   }
+ }
+ function dismissAlert(){   
+   document.getElementById("alert").style.display = "none";  
+ }
+ </script>
+  
