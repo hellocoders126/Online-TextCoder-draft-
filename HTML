@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Text Coder</title>
+<style>
+body {
+  background-color: red;
+  text-align: center;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Free Online String Encoder</h1>
+<p>Have a secret you want to say but you're afraid that someone will hear? Well, this HTML site will code the sentence for you. You just have to type your sentence in the textbox below. Then, you will get your sentence! The person that recives this will go to this site and choose "decode" and put the string in, put the quality in, and the original is out.</p>
+<hr>
+<h2>Settings:</h2>
+<h3 style="text-align:left">Output Settings:</h3>
+<p>Output as...</p>
+<select name="output" id="output">
+  <option value="Sentence on Site">Sentence on Site</option>
+    <option value="Text File">Text File</option> 
+</select>
+<h3 style="text-align:left">Auto Add/Correct:</h3>
+<p style="color:blue">Will be slower when you Auto Add things.</p>
+<p>Add:</p>
+<input type="checkbox" id="1">
+<label for="1">Capital Letters</label> 
+<br>
+<input type="checkbox" id="2">
+<label for="2">Sapces After Punctuations</label>
+<h3 style="text-align:left">Code Settings:</h3>
+<p>Code Type:</p>
+<select name="e/d" id="e/d">
+  <option value="Encode">Encode</option>
+  <option value="Decode">Decode</option>
+</select>
+<p>Code Quality:</p>
+<label for="shift">Quality:</label>
+<input type="range" id="shift" name="shift" min="2" max="25" value="2" onchange="updateSliderValue();">
+<p id="textshift"style="color:purple">2</p>
+<br>
+<label for="code">Code:</label>
+<input type="text" id="code" name="code" onkeypress="dismissAlert();">
+<br>
+<br>
+<input type="button" id="submit" name="submit" value="Code String" onclick="processSettings();">
+<hr>
+<h2>Result:</h2>
+<p id="result"></p>
+<p id="alert" style="color:yellow">Please type in something to code or input someting that this coder supports it.</p>
+<br>
+<br>
+</body>
+</html>
